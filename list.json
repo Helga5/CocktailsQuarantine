@@ -4,7 +4,7 @@
       "sys": { "id": "1" },
       "fields": {
         "title": "was bored out my mind",
-        "price": 10.99,
+        "price": 10,
         "image": { "fields": { "file": { "url": "./images/bored.jpg" } } }
       }
     },
@@ -12,7 +12,7 @@
       "sys": { "id": "2" },
       "fields": {
         "title": "went for a walk",
-        "price": 12.99,
+        "price": 12,
         "image": { "fields": { "file": { "url": "./images/walk.jpg" } } }
       }
     },
@@ -20,7 +20,7 @@
       "sys": { "id": "3" },
       "fields": {
         "title": "read a book",
-        "price": 12.99,
+        "price": 13,
         "image": { "fields": { "file": { "url": "./images/book.jpg" } } }
       }
     },
@@ -28,7 +28,7 @@
       "sys": { "id": "4" },
       "fields": {
         "title": "did a general cleaning",
-        "price": 22.99,
+        "price": 22,
         "image": { "fields": { "file": { "url": "./images/cleaning.jpg" } } }
       }
     },
@@ -36,7 +36,7 @@
       "sys": { "id": "5" },
       "fields": {
         "title": "called friends via online apps",
-        "price": 88.99,
+        "price": 8,
         "image": { "fields": { "file": { "url": "./images/online.jpg" } } }
       }
     },
@@ -44,7 +44,7 @@
       "sys": { "id": "6" },
       "fields": {
         "title": "quarreled with relatives",
-        "price": 32.99,
+        "price": 5,
         "image": { "fields": { "file": { "url": "./images/row.jpg" } } }
       }
     },
@@ -52,7 +52,7 @@
       "sys": { "id": "7" },
       "fields": {
         "title": "had food delivered",
-        "price": 45.99,
+        "price": 6,
         "image": { "fields": { "file": { "url": "./images/glovo.jpg" } } }
       }
     },
@@ -60,7 +60,7 @@
       "sys": { "id": "8" },
       "fields": {
         "title": "played musical instruments",
-        "price": 33.99,
+        "price": 7,
         "image": { "fields": { "file": { "url": "./images/guitar.jpg" } } }
       }
     }

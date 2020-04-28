@@ -15,7 +15,7 @@ var randomCockTailDBURL = "https://www.thecocktaildb.com/api/json/v1/1/random.ph
 class Products {
   async getProducts() {
     try {
-      let result = await fetch("products.json");
+      let result = await fetch("list.json");
       let data = await result.json();
       let products = data.items;
       products = products.map(item => {
@@ -48,12 +48,10 @@ class UI {
               class="product-img"
             />
             <button class="bag-btn" data-id=${product.id}>
-              <i class="fas fa-shopping-cart"></i>
-              add to bag
-            </button>
+              <i class="fas fa-shopping-cart"></i> add </button>
           </div>
           <h3>${product.title}</h3>
-          <h4>$${product.price}</h4>
+          <h4>${product.price}</h4>
         </article>
         <!-- end of single product -->
    `;
@@ -106,7 +104,7 @@ class UI {
             <!-- item info -->
             <div>
               <h4>${item.title}</h4>
-              <h5>$${item.price}</h5>
+              <h5>${item.price}</h5>
               <span class="remove-item" data-id=${item.id}>remove</span>
             </div>
             <!-- item functionality -->
@@ -230,6 +228,7 @@ class Storage {
       : [];
   }
 }
+
 
 
 

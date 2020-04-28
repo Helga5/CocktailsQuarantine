@@ -1,0 +1,183 @@
+
+* {
+    /** Dimensions **/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    /** Colors **/
+    background: white;
+}
+/** Main styling begins **/
+.top {
+    /** Dimensions **/
+    width: 45em;
+    padding: 1em;
+    margin: 0 auto;
+    /** Colors **/
+    color: rgba(0, 0, 0, 0.62);
+    /** Font **/
+    font-family: "Montserrat";
+    font-size: 0.7em;
+    text-align: center;
+    /** Display **/
+    display: flex;
+    justify-content: space-around;
+}
+.top h1 {
+    /** Dimensions **/
+    padding: 0.4em;
+}
+/** Refresh Button Start **/
+.refresh-button {
+    /** Colors **/
+    color: #fcbb6d;
+    background-color: white;
+    /** Font **/
+    font-size: 1.8em;
+    line-height: 1.5em;
+    /** Border **/
+    border: solid 4px #fcbb6d;
+    border-radius: 1em;
+}
+.refresh-button:hover {
+    cursor: pointer;
+    /** Colors **/
+    color: white;
+    background-color: #fcbb6d;
+}
+/** Refresh Button End **/
+
+/** Card Start **/
+.cocktail-container {
+    /** Dimensions **/
+    width: 25em;
+    height: 36em;
+    padding: 1em 0em;
+    margin: 0.5em auto;
+    /** Colors **/
+    color: black;
+    background: white;
+    box-shadow: 0px 0px 15px #c4c4c4;
+    /** Font **/
+    font-family: sans-serif;
+    text-align: center;
+    /** Border **/
+    border-radius: 7%;
+}
+/** Cocktail Name **/
+.name {
+    /** Dimensions **/
+    margin: 0em 0em 0.5em 0em;
+    /** Position **/
+    position: relative;
+    /** Font **/
+    font-size: 2em;
+    /** Display **/
+    display: block;
+}
+/** Cocktail Image **/
+.image {
+    /** Dimensions **/
+    height: 59%;
+    width: 89%;
+}
+/** Info Container Start **/
+.info {
+    /** Dimensions **/
+    padding: 1em;
+    /** Position **/
+    position: relative;
+    top: -0.5em;
+    /** Font **/
+    font-family: "Raleway";
+    font-size: 100%;
+    text-align: left;
+    /** Display **/
+    display: flex;
+}
+/** Ingredients list container **/
+.ingredients {
+    /** Dimensions **/
+    width: 80%;
+    height: 8.7em;
+    padding-left: 0;
+    /** Position **/
+    position: relative;
+    top: 0.4em;
+    overflow: scroll;
+    /** Extra **/
+    list-style: none;
+}
+/** Individual Ingredients **/
+.ingredients li {
+    /** Dimensions **/
+    padding: 0.3em;
+    margin: 0em 0.4em 0.4em;
+    /** Font **/
+    text-align: center;
+    /** Colors **/
+    color: #fcbb6d;
+    background: white;
+    /** Border **/
+    border: 1px #fcbb6d solid;
+}
+/** Instructions on how to make the drink **/
+.instructions {
+    /** Dimensions **/
+    width: 28em;
+    height: 8.4em;
+    padding: 0.3em;
+    margin-right: 1.3%;
+    /** Color **/
+    color: white;
+    background: #fcbb6d;
+    /** Font **/
+    font-size: 1em;
+    text-align: center;
+    line-height: 25px;
+    /** Position **/
+    justify-content: center;
+    position: relative;
+    top: 0.4em;
+    overflow: scroll;
+}
+/** Info End **/
+/** Card End **/
+
+@media only screen and (max-width: 425px) {
+    .top {
+        font-size: 60%;
+        width: 100%;
+    }
+    .refreshbutton {
+        height: 3em;
+    }
+
+  .cocktail-container {
+        width: 100%;
+        height: 100%;
+        box-shadow: 0px 12px 20px #c4c4c4;
+    }
+
+    .image {
+        height: 50%;
+    }
+    /** Info Start **/
+    .info {
+        height: 35%;
+        font-size: 90%;
+    }
+    .info li {
+        height: auto;
+    }
+    /** Info End **/
+    .ingredients {
+        height: 100%;
+    }
+
+    .instructions {
+        height: 100%;
+    }
+}
