@@ -10,7 +10,7 @@ const cartTotal = document.querySelector(".cart-total");
 const cartContent = document.querySelector(".cart-content");
 const productsDOM = document.querySelector(".products-center");
 let cart = [];
-
+var randomCockTailDBURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
 // products
 class Products {
   async getProducts() {
@@ -230,6 +230,8 @@ class Storage {
       : [];
   }
 }
+
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const ui = new UI();
