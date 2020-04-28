@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>CoctailsQuarantine</title>
+  <link rel="stylesheet/less" type="text/css" href="index.less" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+
+<body>
+<!-- navbar -->
+<nav class="navbar">
+  <div class="navbar-center">
+        <span class="nav-icon">
+          <i class="fas fa-bars"></i>
+        </span>
+    <!--<img src="./images/logo.svg" alt="store logo" />-->
+    <div class="cart-btn">
+          <span class="nav-icon">
+            <i class="fas fa-cart-plus"></i>
+          </span>
+      <div class="cart-items">0</div>
+    </div>
+  </div>
+</nav>
+<!-- end of navbar -->
+<!-- hero -->
+<header class="hero">
+  <div class="banner">
+    <h1 class="banner-title">Cocktails during Quarantine</h1>
+    <button class="banner-btn">Start</button>
+  </div>
+</header>
+
+<section class="description">
+
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="feature-box col-lg-4">
+          <i class="icon fas fa-check-circle fa-4x"></i>
+          <h3 class="feature-title">Easy to use.</h3>
+          <p>So easy to use, even your dog could do it.</p>
+        </div>
+
+        <div class="feature-box col-lg-4">
+          <i class="glyphicon glyphicon-ok"></i>
+          <h3 class="feature-title">Elite Clientele</h3>
+          <p>We have all the dogs, the greatest dogs.</p>
+        </div>
+
+        <div class="feature-box col-lg-4">
+          <i class="icon fas fa-heart fa-4x"></i>
+          <h3 class="feature-title">Guaranteed to work.</h3>
+          <p>Find the love of your dog's life or your money back.</p>
+        </div>
+      </div>
+
+
+    </div>
+</section>
+
+
+    <section class="testimonial">
+      <div id="testimonial-carousel" class="carousel slide" data-ride="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active container-fluid">
+            <h2 class="testimonial-text"> Me and my friends use this site every<br> Friday when we meet at Zoom</h2>
+            <img class="testimonial-image" src="images/happygirl.jpg" alt="dog-profile">
+            <em>Pebbles, New York</em>
+          </div>
+          <div class="carousel-item container-fluid">
+            <h2 class="testimonial-text"> I think this site really helps me to go thought quarantine </h2>
+            <img class="testimonial-image" src="images/happygirl.jpg" alt="lady-profile">
+            <em>Beverly, Illinois</em>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- products -->
+<section class="products">
+  <div class="section-title">
+    <h2>our products</h2>
+  </div>
+  <div class="products-center">
+  </div>
+</section>
+<!-- end of products -->
+<!-- cart -->
+<div class="cart-overlay">
+  <div class="cart">
+    <span class="close-cart"><i class="far fa-window-close"></i></span>
+    <h2>your cart</h2>
+    <div class="cart-content">
+
+    </div>
+    <div class="cart-footer">
+      <h3>your total : $<span class="cart-total">0</span></h3>
+      <button class="clear-cart banner-btn">clear cart</button>
+    </div>
+  </div>
+</div>
+
+
+    <section class="cocktails-picker" id="cta">
+
+      <div class="container-fluid">
+
+        <h3 class="big-heading">Find the True Love of Your Dog's Life Today.</h3>
+        <button class="download-button btn btn-lg btn-dark" type="button"><i class="fab fa-apple"></i> Download</button>
+        <button class="download-button btn btn-lg brn-light" type="button"><i class="fab fa-google-play"></i> Download</button>
+      </div>
+    </section>
+    <!-- end of cart -->
+<!--  javascript -->
+<script src="app.js"></script>
+<!-- Bootstrap Scripts -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+</body>
+</html>
