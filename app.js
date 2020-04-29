@@ -1,5 +1,9 @@
+var randomCockTailDBURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+
 
 // variables
+//повертає перший елемент документу, що відповідає вказаному селектору
+//дістаємо з html-сторінки об'єкти, що там знаходяться, та присвоюємо деяку поведінку
 const cartBtn = document.querySelector(".cart-btn");
 const closeCartBtn = document.querySelector(".close-cart");
 const clearCartBtn = document.querySelector(".clear-cart");
@@ -10,21 +14,26 @@ const cartTotal = document.querySelector(".cart-total");
 const cartContent = document.querySelector(".cart-content");
 const productsDOM = document.querySelector(".products-center");
 let cart = [];
-var randomCockTailDBURL = "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+//оголошуємо локальну змінну блочної області видимості, з необов'язковим присвоєнням їй початкового значення.
+
+
 // products
 class Products {
+    //оголошуємо асинхрону функцію
   async getProducts() {
     try {
       let result = await fetch("list.json");
+        //функціонал для роботи з запитами //забираємо дані з data_list
       let data = await result.json();
       let products = data.items;
-      products = products.map(item => {
+         //створюємо новий масив активностей
+      products = products.map(item => { //поля обєкту
         const { title, price } = item.fields;
         const { id } = item.sys;
         const image = item.fields.image.fields.file.url;
         return { title, price, id, image };
       });
-      console.log(products);
+      console.log(products);//вивід на екран
 
       return products;
     } catch (error) {
@@ -33,7 +42,7 @@ class Products {
   }
 }
 
-// ui
+// ui візуалізація продуктів
 class UI {
   displayProducts(products) {
     let result = "";
@@ -56,17 +65,19 @@ class UI {
         <!-- end of single product -->
    `;
     });
-    productsDOM.innerHTML = result;
+    productsDOM.innerHTML = result; //встановлює розмітку html дочірніх елементів, відповідає за зовнішній вигляд
   }
+    
+      //робота з кнопками
   getBagButtons() {
-    const buttons = [...document.querySelectorAll(".bag-btn")];
+    const buttons = [...document.querySelectorAll(".bag-btn")]; //створюється запит, щоб присвоїти змінній якусь поведінку
     buttons.forEach(button => {
       let id = button.dataset.id;
-
+//присвоюємо кнопці id
       let inCart = cart.find(item => item.id === id);
       if (inCart) {
         button.innerText = "In Cart";
-        button.disabled = true;
+        button.disabled = true;  //активність додана до кошику
       } else {
         button.addEventListener("click", event => {
           // disable button
@@ -77,6 +88,7 @@ class UI {
           cart = [...cart, cartItem];
           Storage.saveCart(cart);
           // add to DOM
+            //кошик з цією активністю, що ми додали
           this.setCartValues(cart);
           this.addCartItem(cartItem);
           this.showCart();
@@ -92,12 +104,15 @@ class UI {
       itemsTotal += item.amount;
     });
     cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
-    cartItems.innerText = itemsTotal;
+    cartItems.innerText = itemsTotal; //присвоюємо нове значення
   }
 
+    //додати активність в кошик
   addCartItem(item) {
-    const div = document.createElement("div");
+    const div = document.createElement("div");//створюємо деякий елемент, якому потім присвоємо div кошик
     div.classList.add("cart-item");
+       //одає клас у атрибут class елементу.
+    //створюємо html-розмітку
     div.innerHTML = `<!-- cart item -->
             <!-- item image -->
             <img src=${item.image} alt="product" />
@@ -118,11 +133,13 @@ class UI {
           <!-- cart item -->
     `;
     cartContent.appendChild(div);
+      //Додає нову node в кінець списку
   }
   showCart() {
     cartOverlay.classList.add("transparentBcg");
     cartDOM.classList.add("showCart");
   }
+    //додаємо функціонал кошика
   setupAPP() {
     cart = Storage.getCart();
     this.setCartValues(cart);
@@ -130,6 +147,7 @@ class UI {
     cartBtn.addEventListener("click", this.showCart);
     closeCartBtn.addEventListener("click", this.hideCart);
   }
+      //наповнюємо кошик
   populateCart(cart) {
     cart.forEach(item => this.addCartItem(item));
   }
@@ -146,36 +164,22 @@ class UI {
         let removeItem = event.target;
         let id = removeItem.dataset.id;
         cart = cart.filter(item => item.id !== id);
+          //повертає елемент, який задовольняє умову
         console.log(cart);
 
         this.setCartValues(cart);
         Storage.saveCart(cart);
         cartContent.removeChild(removeItem.parentElement.parentElement);
+          //видаляємо непотрібні nodes і обєднуємо їх з першими
         const buttons = [...document.querySelectorAll(".bag-btn")];
         buttons.forEach(button => {
           if (parseInt(button.dataset.id) === id) {
             button.disabled = false;
-            button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to bag`;
+            button.innerHTML = `<i class="fas fa-shopping-cart"></i>add`;
           }
         });
-      } else if (event.target.classList.contains("fa-chevron-up")) {
-        let addAmount = event.target;
-        let id = addAmount.dataset.id;
-        let tempItem = cart.find(item => item.id === id);
-        tempItem.amount = tempItem.amount + 1;
-        Storage.saveCart(cart);
-        this.setCartValues(cart);
-        addAmount.nextElementSibling.innerText = tempItem.amount;
-      } else if (event.target.classList.contains("fa-chevron-down")) {
-        let lowerAmount = event.target;
-        let id = lowerAmount.dataset.id;
-        let tempItem = cart.find(item => item.id === id);
-        tempItem.amount = tempItem.amount - 1;
-        if (tempItem.amount > 0) {
-          Storage.saveCart(cart);
-          this.setCartValues(cart);
-          lowerAmount.previousElementSibling.innerText = tempItem.amount;
-        } else {
+      } 
+        else {
           cart = cart.filter(item => item.id !== id);
           // console.log(cart);
 
@@ -186,13 +190,15 @@ class UI {
           buttons.forEach(button => {
             if (parseInt(button.dataset.id) === id) {
               button.disabled = false;
-              button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to bag`;
+              button.innerHTML = `<i class="fas fa-shopping-cart"></i>add`;
             }
           });
         }
       }
-    });
+    );
   }
+    
+  //метод, що чистить кошик
   clearCart() {
     // console.log(this);
 
@@ -202,7 +208,7 @@ class UI {
     const buttons = [...document.querySelectorAll(".bag-btn")];
     buttons.forEach(button => {
       button.disabled = false;
-      button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to bag`;
+      button.innerHTML = `<i class="fas fa-shopping-cart"></i>add`;
     });
     while (cartContent.children.length > 0) {
       cartContent.removeChild(cartContent.children[0]);
@@ -211,12 +217,13 @@ class UI {
   }
 }
 
+//клас, що відповідає за збереження даних
 class Storage {
   static saveProducts(products) {
     localStorage.setItem("products", JSON.stringify(products));
-  }
+  }//зберігаємо у веб-сховищі пару ключ/значення
   static getProduct(id) {
-    let products = JSON.parse(localStorage.getItem("products"));
+    let products = JSON.parse(localStorage.getItem("products")); //сonverts a JavaScript Object Notation (JSON) string into an object.
     return products.find(product => product.id === id);
   }
   static saveCart(cart) {
@@ -231,7 +238,7 @@ class Storage {
 
 
 
-
+//запускамо звязок js з html сторінкою
 document.addEventListener("DOMContentLoaded", () => {
   const ui = new UI();
   const products = new Products();
